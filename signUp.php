@@ -12,7 +12,7 @@
 
     <div class="container mt-5 mx-auto text-center w-100">
         <div class="col-sm-12 col-md-6 col-lg-6 mx-auto border p-2 rounded ">
-          <h3 class="text-info">SIGN-UP</h3>
+          <h3 class="text-info">SIGN-UP/SIGNUP</h3>
           <div class="w-100 mt-3 pb-3 alert alert-danger" id="sg">
             <?php
                session_start();
@@ -24,12 +24,12 @@
           </div>
             <hr class=" border border-warning border-4">
         <form action="submit.php" method='post'>
-            <input type="text" class="form-control my-3" placeholder="First Name" name="firstName">
-            <input type="text" class="form-control my-3" placeholder="Last Name" name="lastName">
-            <input type="email" class="form-control my-3" placeholder="Email" name="email">
-            <input type="number" class="form-control my-3" placeholder="Age" name="age">
-            <input type="text" class="form-control my-3" placeholder="Address" name="address">
-            <input type="password" class="form-control my-3" placeholder="Password" name="password">
+            <input type="text" class="form-control my-3" placeholder="First Name" name="firstName" required>
+            <input type="text" class="form-control my-3" placeholder="Last Name" name="lastName" required>
+            <input type="email" class="form-control my-3" placeholder="Email" name="email" required>
+            <input type="number" class="form-control my-3" placeholder="Age" name="age" required>
+            <input type="text" class="form-control my-3" placeholder="Address" name="address" required>
+            <input type="password" class="form-control my-3" placeholder="Password" name="password" required>
 
             <button type="submit" name="submit" value="submit" class="btn btn-primary w-100">SUBMIT</button>
         </form>

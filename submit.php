@@ -43,6 +43,6 @@ session_start();
 
     }
     else{
-        header('location:signUp.html');
+        header('location:signUp.php');
     }
 ?>
