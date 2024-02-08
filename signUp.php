@@ -13,7 +13,7 @@
     <div class="container mt-5 mx-auto text-center w-100">
         <div class="col-sm-12 col-md-6 col-lg-6 mx-auto border p-2 rounded ">
           <h3 class="text-info">SIGN-UP</h3>
-          <div class="w-100 mt-3 pb-3 alert alert-danger">
+          <div class="w-100 mt-3 pb-3 alert alert-danger" id="sg">
             <?php
                session_start();
                if(isset($_SESSION['message'])){

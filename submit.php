@@ -31,13 +31,13 @@ session_start();
            $SavedQuery = $dbConnection -> query($query);
     
            if($SavedQuery){
-               echo 'Successfully Saved', $SavedQuery;
-            //    header('location:login.php');
+            //    echo 'Successfully Saved', $SavedQuery;
+               header('location:login.php');
            }
            else{
-            //    $_SESSION['msg'] = "Unsuccessful Registration";
-            //    header('location:signUp.php');
-               echo 'Not successfully Saved';
+               $_SESSION['message'] = "Unsuccessful Registration!";
+               header('location:signUp.php');
+            //    echo 'Not successfully Saved';
            }
         }
 
