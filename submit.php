@@ -12,22 +12,35 @@ session_start();
         $address = $_POST['address'];
         $password = $_POST['password'];
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        // echo $hashedPassword;
+        $query = "SELECT * FROM studentstable WHERE email = '$email'";
+        $SavedQuery = $dbConnection -> query($query);
 
-       $query = "INSERT INTO studentstable (`first_Name`, `last_Name`, `email`, `age`, `address`, `password`) VALUES ('$firstName', '$lastName', '$email', $age, '$address', '$hashedPassword')";
+        if($SavedQuery -> num_rows > 0){
+            $user = $SavedQuery -> fetch_assoc();
+            $_SESSION['message'] = 'Email already exist!';
+            header('location:signUp.php');
+            // print_r($user);
+            // print_r($user['user_id']);  
+        }
+        else{
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            echo $hashedPassword;
+    
+           $query = "INSERT INTO studentstable (`first_Name`, `last_Name`, `email`, `age`, `address`, `password`) VALUES ('$firstName', '$lastName', '$email', $age, '$address', '$hashedPassword')";
+    
+           $SavedQuery = $dbConnection -> query($query);
+    
+           if($SavedQuery){
+               echo 'Successfully Saved', $SavedQuery;
+            //    header('location:login.php');
+           }
+           else{
+            //    $_SESSION['msg'] = "Unsuccessful Registration";
+            //    header('location:signUp.php');
+               echo 'Not successfully Saved';
+           }
+        }
 
-       $SavedQuery = $dbConnection -> query($query);
-
-       if($SavedQuery){
-           echo 'Successfully Saved', $SavedQuery;
-        //    header('location:login.php');
-       }
-       else{
-        //    $_SESSION['msg'] = "Unsuccessful Registration";
-        //    header('location:signUp.php');
-           echo 'Not successfully Saved';
-       }
     }
     else{
         header('location:signUp.html');

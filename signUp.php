@@ -10,9 +10,18 @@
 
    
 
-    <div class="container mt-5 mx-auto text-center">
+    <div class="container mt-5 mx-auto text-center w-100">
         <div class="col-sm-12 col-md-6 col-lg-6 mx-auto border p-2 rounded ">
-            <h3 class="text-info">SIGN-UP</h3>
+          <h3 class="text-info">SIGN-UP</h3>
+          <div class="w-100 mt-3 pb-3 alert alert-danger">
+            <?php
+               session_start();
+               if(isset($_SESSION['message'])){
+                 echo $_SESSION['message'];
+                }
+                session_unset();
+            ?>
+          </div>
             <hr class=" border border-warning border-4">
         <form action="submit.php" method='post'>
             <input type="text" class="form-control my-3" placeholder="First Name" name="firstName">
