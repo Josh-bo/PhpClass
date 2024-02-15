@@ -1,4 +1,5 @@
 <?php
+
     require 'connection.php';
     session_start();
 
@@ -11,10 +12,12 @@
     
         if($con -> num_rows > 0){
             $user = $con -> fetch_assoc();
-            print_r($user['password']);  
-
-            if (password_verify($password, $user['password'])) {
-                echo "Password is correct!";
+            // print_r($user['password']);  
+            $password_verify = password_verify($password, $user['password']);
+            if ($password_verify) {
+                // echo "Password is correct!";
+                $_SESSION['userid'] = $user['user_id'];
+                  echo $_SESSION['userid'];
                 header('location:dashboard.php');
             } else {
                $_SESSION['message'] = "Incorrect password!";

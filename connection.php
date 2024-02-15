@@ -9,6 +9,6 @@ if($dbConnection -> connect_error){
     echo 'Not connected';
 }
 else{
-    // echo 'Connected';
+    echo 'Connected';
 }
 ?>
