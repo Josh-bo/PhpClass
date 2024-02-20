@@ -1,6 +1,6 @@
   <?php
-      require 'connection.php';
       session_start();
+      require 'connection.php';
     //  echo 'Dashboard';
      print_r($_SESSION);
     //  echo $_SESSION['userid']

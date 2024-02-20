@@ -1,7 +1,7 @@
 <?php
 
-    require 'connection.php';
     session_start();
+    require 'connection.php';
 
     if(isset($_POST['submit'])){
         $email = $_POST['email'];
@@ -18,7 +18,7 @@
                 // echo "Password is correct!";
                 $_SESSION['userid'] = $user['user_id'];
                   echo $_SESSION['userid'];
-                header('location:dashboard.php');
+                header('location:newPage.php');
             } else {
                $_SESSION['message'] = "Incorrect password!";
 
@@ -46,8 +46,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-
-   
 
     <div class="container mt-5 mx-auto text-center w-100">
         <div class="col-sm-12 col-md-6 col-lg-6 mx-auto border p-2 rounded ">

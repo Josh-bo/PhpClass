@@ -1,7 +1,7 @@
 <?php
 session_start();
 require 'connection.php';
-$userId = $_SESSION['userId'];
+$adminId = $_SESSION['adminId'];
 
 if(isset($_POST['submit'])){
     // print_r($_FILES['image']);
@@ -13,8 +13,7 @@ if(isset($_POST['submit'])){
     $newName = time().$name;
     $move_image = move_uploaded_file($temp, 'images/'.$newName);
     if($move_image){
-        // echo 'Moved File';
-        $query = "UPDATE studentstable SET profile_pic = ' .$newName.' WHERE user_id = $userId";
+        $query = "UPDATE adminstable SET images = ' .$newName.' WHERE admin_id = $adminId";
         $con = $dbConnection -> query($query);
 
         if($con) {
@@ -23,8 +22,8 @@ if(isset($_POST['submit'])){
         }
         else{
             $_SESSION['message'] = 'Updating Failed!';
-            echo 'Updating Failed';
-            header('location:dashboard.php');
+            // echo 'Updating Failed';
+            header('location:adminDashboard.php');
         }
     }
     else{
@@ -34,6 +33,6 @@ if(isset($_POST['submit'])){
     // echo $name;
 }
 else{
-    header('location:login.php');
+    header('location:adminLogin.php');
 }
 ?>

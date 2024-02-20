@@ -1,7 +1,7 @@
 <?php 
 
-require 'connection.php';
 session_start();
+require 'connection.php';
 
     if(isset($_POST['submit'])){
         // print_r($_POST);
